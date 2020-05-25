@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+# mkpy: Python script template maker.
+# Updated May 2020
+
+import sys, os.path, os, argparse
+
+#TODO: argparse instead of sys Aim: robust and more or less feature ready app.
+#parser = argparse.ArgumentParser(description='Python script template maker.')
+#parser.add_argument('filename', help='Python file script to create.')
+#parser.add_argument('--limit', '-l', type=int, help='')
+#parser.add_argument('--version', '-v', action='version', version='%(prog)s 0.1')
+
+# Checks if the file already exist
+def CheckFilename(filename):
+    while os.path.isfile(filename):
+        print(f"\n{filename} exists")
+        filename=input("Pick new namefile: ")
+    return filename
+
+def __main__(): # Main 
+    # Checking for number of arguments
+    argc = int(len(sys.argv) - 1)
+    if (argc != 1): 
+        print ("\nProvide a valid filename.")
+        print (f"\nUsage: mkpy [filename]\n")
+        sys.exit(1)
+    else:
+        filename = sys.argv[1]
+
+    # Path to Pyscript directory, where all my Python scripts are.
+    PathDir = f"/Users/diddy/Code/PyScript/{filename}"
+    # Check File
+    CheckedFile = CheckFilename(PathDir)
+
+    # Create the script file
+    with open(CheckedFile, "w+") as textFile:
+        textFile.write("#!/user/bin/env python3\n\n")
+        Description=input("\nBrief script descritption: ")
+        textFile.write(f"# {CheckedFile}\n# {Description}\n# Author: Wilfrantz")
+
+    # Open script file with system default file editor
+    editor = os.environ.get('EDITOR')
+    cmd = f"{editor} {CheckedFile}"
+    os.system(cmd)
+
+
+if __name__ == '__main__':
+    __main__()
