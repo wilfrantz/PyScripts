@@ -5,7 +5,7 @@
 
 import sys, os.path, os, argparse
 
-#TODO: argparse instead of sys Aim: robust and more or less feature ready app.
+#TODO: argparse to create robust and more or less feature ready app.
 #parser = argparse.ArgumentParser(description='Python script template maker.')
 #parser.add_argument('filename', help='Python file script to create.')
 #parser.add_argument('--limit', '-l', type=int, help='')
