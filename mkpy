@@ -3,7 +3,7 @@
 # mkpy: Python script template maker.
 # Updated May 2020
 
-import sys, os.path, os, argparse
+import sys, os.path, os#, argparse
 
 #TODO: argparse to create robust and more or less feature ready app.
 #parser = argparse.ArgumentParser(description='Python script template maker.')
