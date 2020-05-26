@@ -11,7 +11,7 @@ import sys, os.path, os#, argparse
 #parser.add_argument('--limit', '-l', type=int, help='')
 #parser.add_argument('--version', '-v', action='version', version='%(prog)s 0.1')
 
-# Checks if the file already exist
+# Checks if the file exists
 def CheckFilename(filename):
     while os.path.isfile(filename):
         print(f"\n{filename} exists")
@@ -19,7 +19,7 @@ def CheckFilename(filename):
     return filename
 
 def __main__(): # Main 
-    # Checking for number of arguments
+    # Check number of arguments & error handling
     argc = int(len(sys.argv) - 1)
     if (argc != 1): 
         print ("\nProvide a valid filename.")
