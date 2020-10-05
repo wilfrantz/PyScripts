@@ -11,8 +11,10 @@ import sys, os.path, os#, argparse
 #parser.add_argument('--limit', '-l', type=int, help='')
 #parser.add_argument('--version', '-v', action='version', version='%(prog)s 0.1')
 
-# Checks if the file exists
 def CheckFilename(filename):
+    """ 
+    Check if the file exists
+    """
     while os.path.isfile(filename):
         print(f"\n{filename} exists")
         filename=input("Pick new namefile: ")
@@ -35,7 +37,7 @@ def __main__(): # Main
 
     # Create the script file
     with open(CheckedFile, "w+") as textFile:
-        textFile.write("#!/user/bin/env python3\n\n")
+        textFile.write("#!/usr/bin/env python3\n\n")
         Description=input("\nBrief script descritption: ")
         textFile.write(f"# {CheckedFile}\n# {Description}\n# Author: Wilfrantz")
 
