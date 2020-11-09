@@ -4,6 +4,7 @@
 # Updated May 2020
 
 import sys, os.path, os#, argparse
+# from termcolor import colored
 
 #TODO: argparse to create robust and more or less feature ready app.
 #parser = argparse.ArgumentParser(description='Python script template maker.')
@@ -16,22 +17,24 @@ def CheckFilename(filename):
     Check if the file exists
     """
     while os.path.isfile(filename):
-        print(f"\n{filename} exists")
-        filename=input("Pick new namefile: ")
+        print(f"\n{filename} exists", "red")
+        filename=input("[+] Pick new namefile: ")
     return filename
 
 def __main__(): # Main 
     # Check number of arguments & error handling
     argc = int(len(sys.argv) - 1)
     if (argc != 1): 
-        print ("\nProvide a valid filename.")
-        print (f"\nUsage: mkpy [filename]\n")
+        print ("\n[-] Provide a valid filename.")
+        print (f"\n[-] Usage: mkpy [filename]\n")
         sys.exit(1)
     else:
         filename = sys.argv[1]
+        user = os.system("whoami")
 
     # Path to Pyscript directory, where all my Python scripts are.
-    PathDir = f"/Users/diddy/Code/PyScript/{filename}"
+    PathDir = f"/Users/{user}/Code/PyScript/{filename}"
+
     # Check File
     CheckedFile = CheckFilename(PathDir)
 
