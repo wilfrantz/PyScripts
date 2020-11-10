@@ -13,7 +13,7 @@ import sys, os.path, os#, argparse
 #parser.add_argument('--version', '-v', action='version', version='%(prog)s 0.1')
 
 def CheckFilename(filename):
-    """ 
+    """
     Check if the file exists
     """
     while os.path.isfile(filename):
@@ -21,10 +21,10 @@ def CheckFilename(filename):
         filename=input("[+] Pick new namefile: ")
     return filename
 
-def __main__(): # Main 
+def __main__(): # Main
     # Check number of arguments & error handling
     argc = int(len(sys.argv) - 1)
-    if (argc != 1): 
+    if (argc != 1):
         print (f"\n[-] Provide a valid filename.")
         print (f"\n[-] Usage: mkpy [filename]\n")
         sys.exit(1)
@@ -32,7 +32,7 @@ def __main__(): # Main
         filename = sys.argv[1]
         user = os.environ.get("USER")
 
-    # Path to my Pyscript directory 
+    # Path to my Pyscript directory
     PathDir = "/Users/" + user + "/Code/PyScript/" + filename
 
     # Check File
@@ -43,6 +43,7 @@ def __main__(): # Main
         textFile.write("#!/usr/bin/env python3\n\n")
         Description=input("\nBrief script descritption: ")
         textFile.write(f"# {CheckedFile}\n# {Description}\n# Author: Wilfrantz")
+    textFile.close()
 
     # Open script file with system default file editor
     editor = os.environ.get('EDITOR')
